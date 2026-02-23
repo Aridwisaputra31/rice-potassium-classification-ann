@@ -1,0 +1,110 @@
+RICE POTASSIUM PREDICTION USING ARTIFICIAL NEURAL NETWORK (ANN)
+
+This project implements an Artificial Neural Network (ANN) model to classify the potassium status of rice plants using color-feature datasets extracted from leaf images captured by different smartphone cameras. The image processing stage has already been completed. This repository focuses only on model training, evaluation, and saving the trained model.
+
+---
+
+GENERAL MODEL CONFIGURATION (APPLIED TO ALL DATASETS)
+
+* Input Data              : 5 color feature variables (numerical)
+* Number of Hidden Layers : 5
+* Activation Function     : ReLU (hidden layers), Softmax (output layer)
+* Optimizer               : Adam
+* Learning Rate           : 0.00003
+* Batch Size              : 100
+* Output Classes          : 3 Categories (Cukup, Kurang, Lebih)
+
+All input features are normalized using StandardScaler, and target labels are transformed using One-Hot Encoding before training.
+
+---
+
+MODEL ARCHITECTURE BY SMARTPHONE TYPE
+
+1. OPPO MODEL
+
+Architecture follows a gradually decreasing neuron pattern to stabilize feature abstraction.
+
+Hidden Layer 1 : 300 nodes, Dropout 0.3
+Hidden Layer 2 : 295 nodes, Dropout 0.4
+Hidden Layer 3 : 290 nodes, Dropout 0.4
+Hidden Layer 4 : 285 nodes, Dropout 0.4
+Hidden Layer 5 : 280 nodes, Dropout 0.4
+
+Training Epochs : 5500
+
+Design Characteristic:
+Progressive reduction architecture to refine representation and avoid over-complexity.
+
+---
+
+2. REDMI MODEL
+
+Architecture uses a mixed pattern with increasing neurons in deeper layers.
+
+Hidden Layer 1 : 140 nodes, Dropout 0.3
+Hidden Layer 2 : 380 nodes, Dropout 0.3
+Hidden Layer 3 : 340 nodes, Dropout 0.3
+Hidden Layer 4 : 400 nodes, Dropout 0.2
+Hidden Layer 5 : 425 nodes, Dropout 0.1
+
+Training Epochs : 6500
+
+Design Characteristic:
+Expanding architecture to strengthen classification capability in later layers.
+
+---
+
+3. SAMSUNG MODEL
+
+Architecture consistently increases neurons with strong regularization.
+
+Hidden Layer 1 : 350 nodes, Dropout 0.5
+Hidden Layer 2 : 360 nodes, Dropout 0.5
+Hidden Layer 3 : 370 nodes, Dropout 0.5
+Hidden Layer 4 : 380 nodes, Dropout 0.5
+Hidden Layer 5 : 400 nodes, Dropout 0.5
+
+Training Epochs : 12000
+
+Design Characteristic:
+Most complex architecture with high dropout to prevent overfitting and improve generalization.
+
+---
+
+PROGRAM WORKFLOW
+
+1. Load prepared dataset (Excel format).
+2. Split into training and validation data.
+3. Normalize feature values using StandardScaler.
+4. Encode class labels using OneHotEncoder.
+5. Build ANN model according to selected smartphone configuration.
+6. Train model using Adam optimizer.
+7. Evaluate performance using accuracy and confusion matrix.
+8. Visualize training history (accuracy and loss curves).
+9. Save trained model architecture (.json) and weights (.h5).
+
+---
+
+OUTPUT FILES
+
+After training, the system generates:
+
+* Confusion matrix visualization
+* Training vs validation accuracy graph
+* Training vs validation loss graph
+* Saved ANN model (.json)
+* Saved trained weights (.weights.h5)
+
+These saved models can be reused for prediction without retraining.
+
+---
+
+PROJECT SCOPE
+
+This repository is intended for:
+
+* ANN model development and experimentation
+* Performance comparison across smartphone-acquired datasets
+* Reproducible training using prepared numerical features
+
+This repository does NOT include image acquisition or preprocessing stages.

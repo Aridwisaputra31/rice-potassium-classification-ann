@@ -17,15 +17,15 @@ Data ready for training (no image preprocessing required)
 
 #### Program Workflow
 The script performs:
-1️⃣ Load training and validation datasets
-2️⃣ Normalize input features using StandardScaler
-3️⃣ Convert class labels using OneHotEncoder
-4️⃣ Build Deep ANN model (5 hidden layers + dropout)
-5️⃣ Train model using Adam optimizer
-6️⃣ Evaluate performance using:
+- Load training and validation datasets
+- Normalize input features using StandardScaler
+- Convert class labels using OneHotEncoder
+- Build Deep ANN model (5 hidden layers + dropout)
+- Train model using Adam optimizer
+- Evaluate performance using:
 Accuracy
 Confusion Matrix
-7️⃣ Visualize:
+- Visualize:
 Training vs Validation Accuracy
 Training vs Validation Loss
-8️⃣ Save trained model to disk
+- Save trained model to disk

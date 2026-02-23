@@ -1,4 +1,3 @@
-Lampiran 17. Kode Program Jaringan Saraf Tiruan Kamera Samsung 
 import os 
 import pandas as pd 
 import numpy as np 
